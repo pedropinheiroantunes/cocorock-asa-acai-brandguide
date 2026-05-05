@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Brand Guide — Coco Rock × Asa Açaí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#91A93E;
+    --green-soft:#B0C660;
+    --milk:#E1E1E1;
+    --pulp:#E1D6B6;
+    --husk:#E4CCAA;
+    --coco:#D3C6B9;
+    --cacau:#99381A;
+    --cafe:#864C24;
+    --gengibre:#D78600;
+    --ink:#1f1f1f;
+    --muted:#6b6b6b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#888;font-family:'Ubuntu',system-ui,Arial,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  /* page = landscape A4 (mimic brand book) */
+  .page{
+    width:297mm;height:210mm;
+    margin:8mm auto;background:#fff;position:relative;
+    padding:18mm 20mm;overflow:hidden;
+    page-break-after:always;
+  }
+  .page:last-child{page-break-after:auto}
+  .corner-tl{position:absolute;top:10mm;left:20mm;font-size:9pt;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .corner-tr{position:absolute;top:10mm;right:20mm;font-size:9pt;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .corner-br{position:absolute;bottom:10mm;right:20mm;font-size:9pt;color:var(--muted)}
+  .corner-bl{position:absolute;bottom:10mm;left:20mm;font-size:9pt;color:var(--muted)}
+
+  h1{font-weight:700;font-size:48pt;line-height:1.05;margin:0 0 8mm;letter-spacing:-.01em}
+  h2{font-weight:700;font-size:30pt;line-height:1.05;margin:0 0 6mm;letter-spacing:-.01em}
+  h3{font-weight:500;font-size:14pt;margin:0 0 3mm;color:var(--green)}
+  p,li{font-size:11pt;line-height:1.55;color:#222}
+  small{font-size:9pt;color:var(--muted)}
+  .lead{font-size:13pt;line-height:1.55;color:#333;max-width:150mm}
+
+  /* COVER */
+  .cover{background:var(--green);color:#fff;padding:22mm 24mm;display:flex;flex-direction:column;justify-content:space-between}
+  .cover .logo-mark{width:92mm}
+  .cover h1{font-size:60pt;line-height:1;color:#fff}
+  .cover .meta{display:flex;justify-content:space-between;align-items:flex-end;color:rgba(255,255,255,.85);font-size:10pt;letter-spacing:.18em;text-transform:uppercase}
+  .cover .x{font-weight:300;font-size:60pt;color:rgba(255,255,255,.55);margin:0 4mm}
+  .cover .partners{display:flex;align-items:center;gap:6mm;margin-bottom:10mm}
+  .cover .asa-name{font-weight:700;font-size:48pt;letter-spacing:-.01em;color:#fff}
+
+  /* SECTION DIVIDER */
+  .divider{background:var(--pulp);display:flex;align-items:flex-end;padding:22mm 24mm}
+  .divider .num{font-weight:700;font-size:200pt;line-height:.85;color:var(--green);letter-spacing:-.04em;margin-right:14mm}
+  .divider .info h2{font-size:36pt;margin-bottom:6mm}
+  .divider ul{padding-left:0;list-style:none;margin:0}
+  .divider li{font-size:12pt;color:#444;padding:1mm 0;border-bottom:1px solid rgba(0,0,0,.08);max-width:120mm}
+
+  /* GRID */
+  .grid{display:grid;gap:10mm}
+  .grid.two{grid-template-columns:1fr 1fr}
+  .grid.three{grid-template-columns:1fr 1fr 1fr}
+  .grid.four{grid-template-columns:repeat(4,1fr)}
+
+  .swatch{border-radius:2mm;overflow:hidden;border:1px solid rgba(0,0,0,.08)}
+  .swatch .chip{height:38mm}
+  .swatch .info{padding:4mm 5mm;background:#fff}
+  .swatch .info b{font-size:11pt;letter-spacing:.04em;text-transform:uppercase}
+  .swatch .info small{display:block;font-size:8.5pt;line-height:1.5;color:#444}
+
+  .logo-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:2mm;padding:10mm;display:flex;align-items:center;justify-content:center;min-height:60mm}
+  .logo-card.dark{background:var(--green)}
+  .logo-card.black{background:#000}
+  .logo-card.image-bg{background:url('data:image/png;base64,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') center/cover no-repeat,#888}
+  .logo-card svg{width:75%;height:auto;display:block}
+  .logo-card .label{position:absolute}
+
+  .logo-stack{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+  .logo-stack .logo-card{min-height:48mm;padding:8mm;flex-direction:column;gap:4mm;position:relative}
+  .logo-stack .logo-card .tag{position:absolute;bottom:3mm;left:5mm;font-size:8pt;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .logo-stack .logo-card.dark .tag{color:rgba(255,255,255,.8)}
+  .logo-stack .logo-card.black .tag{color:rgba(255,255,255,.7)}
+
+  /* Coexistência mockup */
+  .coex{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:2mm;padding:12mm;display:flex;align-items:center;justify-content:center;min-height:80mm;position:relative}
+  .lockup-h{display:flex;align-items:flex-end;gap:10mm}
+  .lockup-h svg.cocorock{width:55mm}
+  .lockup-h .divider-line{width:1px;align-self:stretch;background:rgba(0,0,0,.18);margin:0 4mm}
+  .lockup-h .partner{font-weight:700;font-size:24pt;letter-spacing:-.01em;color:#222}
+  .lockup-v{display:flex;flex-direction:column;align-items:center;gap:6mm}
+  .lockup-v svg.cocorock{width:60mm}
+  .lockup-v .partner{font-weight:700;font-size:22pt;letter-spacing:-.01em;color:#222}
+  .lockup-v .divider-line{width:60mm;height:1px;background:rgba(0,0,0,.2)}
+
+  /* Tabela de regras */
+  .rule{display:flex;gap:5mm;align-items:flex-start;margin-bottom:4mm}
+  .rule .bullet{width:6mm;height:6mm;border-radius:50%;background:var(--green);flex:0 0 auto;margin-top:1mm}
+  .rule.no .bullet{background:#c63a2c}
+
+  /* Don'ts grid */
+  .donts{display:grid;grid-template-columns:repeat(4,1fr);gap:6mm}
+  .donts .item{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:2mm;padding:6mm;height:42mm;position:relative;display:flex;align-items:center;justify-content:center}
+  .donts .item .x{position:absolute;top:3mm;right:3mm;font-weight:700;color:#c63a2c;font-size:14pt}
+  .donts .item small{position:absolute;bottom:3mm;left:4mm;font-size:8pt;color:var(--muted)}
+  .donts .item svg{width:70%;height:auto}
+
+  /* Pattern band */
+  .pattern-band{display:grid;grid-template-columns:repeat(5,1fr);gap:0;height:30mm;border-radius:2mm;overflow:hidden;margin-bottom:6mm}
+  .pattern-band > div{background-image:url('data:image/png;base64,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');background-size:cover;background-position:center}
+  .pb1{background-color:var(--green)!important;background-blend-mode:multiply}
+  .pb2{background-color:var(--gengibre)!important;background-blend-mode:multiply}
+  .pb3{background-color:var(--cacau)!important;background-blend-mode:multiply}
+  .pb4{background-color:var(--cafe)!important;background-blend-mode:multiply}
+  .pb5{background-color:var(--pulp)!important;background-blend-mode:multiply}
+
+  /* Voz/essência cards */
+  .pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:5mm}
+  .pillar{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:2mm;padding:6mm}
+  .pillar h3{font-size:12pt;color:var(--green);margin-bottom:2mm}
+  .pillar p{font-size:9.5pt;line-height:1.4;margin:0}
+
+  /* helpers */
+  .row{display:flex;gap:8mm;align-items:flex-start}
+  .stretch{flex:1}
+  .pill{display:inline-block;padding:1.2mm 4mm;border-radius:99px;background:var(--green);color:#fff;font-size:9pt;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+  .pill.alt{background:var(--pulp);color:#222}
+  .hr{height:1px;background:rgba(0,0,0,.08);margin:6mm 0}
+  .quote{font-style:italic;font-size:18pt;line-height:1.3;color:var(--green);max-width:160mm}
+  .essencia{font-weight:700;font-size:46pt;color:var(--green);letter-spacing:-.01em;line-height:1.05}
+
+  @media print{
+    html,body{background:#fff}
+    .page{margin:0;box-shadow:none}
+    @page{size:A4 landscape;margin:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Inline SVG sprite (Coco Rock wordmark) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cocorock-mark" viewBox="0 0 792 612">
+      <g class="text"><!-- letters -->
+        <path d="M592.4,314.2l-21.2-17.4l-44.6,56.1v-55.3c-10.5-2.9-19.9-8.3-27.7-15.4v150l52.1-65.4l30,37.3l21.1-17.6 l-33.5-42L592.4,314.2z"/>
+        <path d="M244.8,207.5c-13.8,0-24.7,11.1-24.7,24.9s10.9,24.7,24.7,24.7c6.8,0,12.6-2.5,17.9-7.5l19.1,20.1 c-9,9-22.6,15.1-37,15.1c-29,0-52.4-23.6-52.4-52.6c0-29,23.4-52.4,52.4-52.4c14.4,0,26.4,5.3,37,15.1L262.7,215 C257.2,210,251.6,207.5,244.8,207.5z"/>
+        <path d="M599.7,232.4c0,29-23.6,52.4-52.6,52.4c-29,0-52.4-23.4-52.4-52.4s23.4-52.6,52.4-52.6 C576.1,179.8,599.7,203.4,599.7,232.4z M522.4,232.4c0,13.8,10.9,24.7,24.7,24.7s24.9-10.9,24.9-24.7s-11.1-24.9-24.9-24.9 S522.4,218.7,522.4,232.4z"/>
+        <path d="M344,284.5l41.3-28.8c3.5-7,5.4-14.9,5.4-23.2c0-29-23.6-52.6-52.6-52.6c-29,0-52.4,23.6-52.4,52.6 s23.4,52.4,52.4,52.4C340.1,284.8,342.1,284.7,344,284.5z M313.4,232.4c0-13.8,10.9-24.9,24.7-24.9c13.8,0,24.9,11.1,24.9,24.9 s-11.1,24.7-24.9,24.7C324.4,257.1,313.4,246.2,313.4,232.4z"/>
+        <path d="M350.7,370.9L350.7,370.9C350.7,370.9,350.7,370.9,350.7,370.9c-2,1.5-4.1,2.6-6.5,3.5 c-0.2,0.1-0.4,0.2-0.6,0.2c-0.4,0.1-0.8,0.2-1.2,0.4c-0.3,0.1-0.7,0.2-1,0.3c-0.4,0.1-0.7,0.2-1.1,0.2c-0.5,0.1-0.9,0.1-1.4,0.2 c-0.3,0-0.6,0.1-0.9,0.1c-0.8,0.1-1.5,0.1-2.3,0.1c0,0,0,0,0,0c0,0,0,0,0,0c-0.8,0-1.6,0-2.3-0.1c-0.5,0-1-0.1-1.4-0.2 c-0.2,0-0.5-0.1-0.7-0.1c-0.6-0.1-1.2-0.3-1.9-0.4c-0.1,0-0.1,0-0.2,0c-10.5-2.8-18.2-12.3-18.2-23.8c0-13.8,10.9-24.9,24.7-24.9 c6,0,11.5,2.1,15.8,5.6l13.8-24.2c-8.4-5.8-18.6-9.1-29.6-9.1c-29,0-52.4,23.6-52.4,52.6c0,29,23.4,52.4,52.4,52.4 c29,0,52.6-23.4,52.6-52.4c0-2.1-0.1-4.2-0.4-6.3L350.7,370.9z"/>
+        <path d="M451.3,375.9c-13.8,0-24.7-10.9-24.7-24.7s10.9-24.9,24.7-24.9c6.8,0,12.4,2.5,17.9,7.5l19.1-20.1 c-9.9-9.2-21-14.4-34.2-15l-52.9,37c-1.5,4.9-2.3,10-2.3,15.4c0,29,23.4,52.6,52.4,52.6c14.4,0,28-6.1,37-15.1l-19.1-20.1 C463.9,373.4,458.1,375.9,451.3,375.9z"/>
+        <path d="M430.4,224.1c3.4-9.7,12.4-16.6,23.3-16.6c0.1,0,0.2,0,0.4,0v0c0.1,0,0.2,0,0.3,0c0.9,0,1.8,0.1,2.7,0.2 c0.3,0,0.6,0.1,0.9,0.1c0.4,0.1,0.8,0.1,1.2,0.2c0.3,0.1,0.6,0.1,0.9,0.2c0.6,0.2,1.2,0.3,1.8,0.5c0.3,0.1,0.6,0.2,1,0.3 c0.3,0.1,0.7,0.3,1,0.4c0.3,0.1,0.6,0.3,0.9,0.4c0.3,0.2,0.6,0.3,1,0.5c0.5,0.3,1.1,0.6,1.6,1v0c1.5,1,2.9,2.1,4.4,3.4l19.1-20.1 c-10.6-9.8-22.6-15.1-37-15.1c-29,0-52.4,23.4-52.4,52.4c0,3.9,0.4,7.7,1.2,11.3L430.4,224.1z"/>
+        <path d="M453.7,257.1c-4,0-7.7-0.9-11-2.6l-13.8,24c7.4,4,15.8,6.2,24.8,6.2c14.4,0,28-6.1,37-15.1l-19.1-20.1 C466.3,254.7,460.5,257.1,453.7,257.1z"/>
+        <path d="M286,386.8l-20.7-25.9c1.2-0.9,2.4-1.9,3.4-3c3.1-3.2,5.6-6.8,7.3-11c1.8-4.2,2.6-8.7,2.6-13.4 c0-4.8-0.9-9.4-2.6-13.5c-1.8-4.2-4.2-7.8-7.3-11c-3.1-3.1-6.7-5.6-10.9-7.4c-4.2-1.8-8.7-2.7-13.7-2.7h-6.7c-1.7,0-3.8,0-6.5,0 c-2.6,0-5.9,0-9.7-0.1c-3.8,0-8.3-0.1-13.5-0.1c-5.2,0-11.1,0-17.9,0v100.8h27.6v-31.5h18.2l29.2,36.3L286,386.8z M217.5,323.7 h21.9c4.1,0,7.4,1.1,9.7,3.2c2.3,2.1,3.5,5.3,3.5,9.5c0,3.7-1.1,6.7-3.4,9c-2.3,2.3-5.4,3.4-9.4,3.4l-22.3,0.1V323.7z"/>
+      </g>
+      <g class="bolt"><!-- raio -->
+        <polygon points="416,286.5 457.4,214.1 350.3,289 378.7,299 337.3,371.4 444.4,296.6 "/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<style>
+  /* Cores das versões do logo */
+  .logo-green .text path{fill:#91A93E}.logo-green .bolt polygon{fill:#91A93E}
+  .logo-white .text path{fill:#fff}.logo-white .bolt polygon{fill:#fff}
+  .logo-black .text path{fill:#1f1f1f}.logo-black .bolt polygon{fill:#1f1f1f}
+  .logo-bicolor .text path{fill:#91A93E}.logo-bicolor .bolt polygon{fill:#fff}
+</style>
+
+<!-- ===== 1. CAPA ===== -->
+<section class="page cover">
+  <div>
+    <div class="meta"><span>Diretrizes de Marca · 2026</span><span>Edição Collab</span></div>
+  </div>
+
+  <div class="partners">
+    <svg class="logo-mark logo-white" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg>
+    <span class="x">×</span>
+    <span class="asa-name">Asa Açaí</span>
+  </div>
+
+  <div>
+    <h1>Brand Guide<br>Co-branding</h1>
+    <p style="color:rgba(255,255,255,.85);max-width:140mm;font-size:13pt">
+      Como utilizar a marca Coco Rock em materiais e ativações da collab Coco Rock × Asa Açaí.
+      Versão enxuta, baseada no Brand Book Coco Rock V1.
+    </p>
+    <div class="meta"><span>cocorock.com.br</span><span>uso restrito ao parceiro</span></div>
+  </div>
+</section>
+
+<!-- ===== 2. INTRODUÇÃO ===== -->
+<section class="page">
+  <div class="corner-tl">Introdução · 01</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <div style="margin-top:30mm;max-width:200mm">
+    <h1>Bem-vindos à<br>nossa marca.</h1>
+    <p class="lead">
+      Este guia é uma versão condensada do Brand Book oficial da Coco Rock, criada para apoiar
+      a equipe do Asa Açaí no uso correto da nossa identidade visual durante a collab.
+    </p>
+    <p class="lead">
+      Aqui você encontra o essencial: <b>essência da marca</b>, <b>regras de uso do logo</b>,
+      <b>coexistência com a marca Asa Açaí</b>, <b>paleta oficial</b>, <b>tipografia</b> e
+      <b>orientações de aplicação</b> em peças de comunicação.
+    </p>
+    <p class="lead">
+      Para qualquer aplicação fora do escopo descrito aqui, consulte o time da Coco Rock antes da
+      veiculação. Sempre use os arquivos originais — <b>nunca reconstrua a marca</b>.
+    </p>
+  </div>
+
+  <div class="corner-br">02</div>
+</section>
+
+<!-- ===== 3. ESSÊNCIA / DIVISOR ===== -->
+<section class="page divider">
+  <div class="num">01</div>
+  <div class="info">
+    <h2>A Marca</h2>
+    <ul>
+      <li>Essência</li>
+      <li>Tom de voz</li>
+      <li>Manifesto resumido</li>
+    </ul>
+  </div>
+  <div class="corner-br">03</div>
+</section>
+
+<!-- ===== 4. ESSÊNCIA & TOM ===== -->
+<section class="page">
+  <div class="corner-tl">A Marca · Essência</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <div style="margin-top:18mm;max-width:240mm">
+    <h3>Essência da marca</h3>
+    <div class="essencia">"Deliciosamente nutritiva."</div>
+
+    <p class="lead" style="margin-top:8mm">
+      A Coco Rock transforma ingredientes naturais em experiências deliciosas que possibilitam
+      uma alimentação mais saudável, prazerosa e conveniente. Equilíbrio entre prazer e nutrição —
+      esse é o conceito que deve atravessar qualquer peça em que a marca aparecer.
+    </p>
+
+    <div class="hr"></div>
+
+    <h3>Tom de voz</h3>
+    <div class="pillars">
+      <div class="pillar"><h3>Premium,<br>mas próxima</h3><p>Qualidade sem ostentação. Sofisticação sem arrogância.</p></div>
+      <div class="pillar"><h3>Apaixonada,<br>não pregadora</h3><p>Inspire, não pregue. Convide, não imponha.</p></div>
+      <div class="pillar"><h3>Natural,<br>mas inovadora</h3><p>Tradição com inovação. Raízes com asas.</p></div>
+      <div class="pillar"><h3>Divertida,<br>mas confiável</h3><p>Leveza com responsabilidade. Humor inteligente.</p></div>
+      <div class="pillar"><h3>Especialista,<br>mas acessível</h3><p>Simplifique o complexo. Linguagem cotidiana.</p></div>
+    </div>
+  </div>
+
+  <div class="corner-br">04</div>
+</section>
+
+<!-- ===== 5. DIVISOR LOGO ===== -->
+<section class="page divider">
+  <div class="num">02</div>
+  <div class="info">
+    <h2>Logo &amp; Aplicação</h2>
+    <ul>
+      <li>Assinatura principal</li>
+      <li>Área de proteção</li>
+      <li>Coexistência com a marca Asa Açaí</li>
+      <li>Aplicação sobre fundos</li>
+      <li>Usos incorretos</li>
+    </ul>
+  </div>
+  <div class="corner-br">05</div>
+</section>
+
+<!-- ===== 6. ASSINATURA PRINCIPAL ===== -->
+<section class="page">
+  <div class="corner-tl">Logo · Assinatura Principal</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <div class="row" style="margin-top:14mm">
+    <div style="flex:0 0 90mm">
+      <h2>Assinatura Principal</h2>
+      <p>
+        A marca Coco Rock é representada pela cor verde <b>#91A93E</b>, que deve ser aplicada
+        em comunicações institucionais e na linha Original. Sempre que possível, priorize
+        a versão positiva (verde) sobre fundos claros.
+      </p>
+      <p style="font-size:10pt;color:#444">
+        Em fundos escuros, use a versão negativa branca. Use as monocromáticas (preto ou branco)
+        somente quando a aplicação em cor não for viável.
+      </p>
+      <p style="font-size:9.5pt;color:#c63a2c;font-weight:500">
+        Sempre use os arquivos originais. Nunca reconstrua a marca.
+      </p>
+    </div>
+
+    <div class="stretch logo-stack">
+      <div class="logo-card"><svg class="logo-green" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg><span class="tag">Positiva · fundos claros</span></div>
+      <div class="logo-card dark"><svg class="logo-white" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg><span class="tag">Negativa · fundos escuros</span></div>
+      <div class="logo-card"><svg class="logo-black" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg><span class="tag">Monocromática preta</span></div>
+      <div class="logo-card black"><svg class="logo-white" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg><span class="tag">Monocromática branca</span></div>
+    </div>
+  </div>
+
+  <div class="corner-br">06</div>
+</section>
+
+<!-- ===== 7. ÁREA DE PROTEÇÃO ===== -->
+<section class="page">
+  <div class="corner-tl">Logo · Área de Proteção</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <div class="row" style="margin-top:14mm">
+    <div style="flex:0 0 95mm">
+      <h2>Área de Proteção</h2>
+      <p>
+        Mantenha sempre uma área livre ao redor da marca, sem texto, gráficos, bordas ou outras logos.
+        O valor de <b>X</b> equivale à altura da letra <b>"O"</b> do logotipo Coco Rock.
+      </p>
+      <h3 style="margin-top:6mm">Tamanho mínimo</h3>
+      <p style="font-size:10pt">
+        Impressão: <b>13 mm</b> de largura.<br>
+        Digital: <b>150 px</b> de largura.<br>
+        Sempre priorize legibilidade — se a marca ficar ilegível, aumente.
+      </p>
+    </div>
+
+    <div class="stretch logo-card" style="position:relative;min-height:110mm">
+      <!-- mockup com guides -->
+      <svg viewBox="0 0 600 360" style="width:100%;height:auto">
+        <defs>
+          <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1" fill="#91A93E"/>
+          </pattern>
+        </defs>
+        <!-- guide rectangle -->
+        <rect x="60" y="60" width="480" height="240" fill="none" stroke="#91A93E" stroke-dasharray="4 3" stroke-width="1"/>
+        <!-- X markers (corners) -->
+        <text x="40" y="40" font-family="Ubuntu" font-size="14" fill="#91A93E">X</text>
+        <text x="544" y="40" font-family="Ubuntu" font-size="14" fill="#91A93E">X</text>
+        <text x="40" y="324" font-family="Ubuntu" font-size="14" fill="#91A93E">X</text>
+        <text x="544" y="324" font-family="Ubuntu" font-size="14" fill="#91A93E">X</text>
+        <!-- logo centered -->
+        <g transform="translate(150,90) scale(0.38)">
+          <use href="#cocorock-mark" class="logo-green"/>
+        </g>
+        <!-- arrows hint -->
+        <line x1="20" y1="180" x2="58" y2="180" stroke="#91A93E" stroke-width="1"/>
+        <line x1="540" y1="180" x2="580" y2="180" stroke="#91A93E" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="corner-br">07</div>
+</section>
+
+<!-- ===== 8. COEXISTÊNCIA - PÁGINA-CHAVE PARA COLLAB ===== -->
+<section class="page">
+  <div class="corner-tl">Logo · Coexistência com a marca Asa Açaí</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <h2 style="margin-top:14mm">Coexistência com a marca Asa Açaí</h2>
+  <p class="lead" style="max-width:240mm">
+    Em qualquer peça da collab onde as duas marcas aparecem juntas, respeite a área de proteção
+    de ambas e mantenha equilíbrio visual. As duas composições abaixo são as oficiais.
+  </p>
+
+  <div class="grid two" style="margin-top:8mm">
+    <div>
+      <span class="pill">Composição Horizontal · preferencial</span>
+      <div class="coex" style="margin-top:4mm">
+        <div class="lockup-h">
+          <svg class="cocorock logo-green" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg>
+          <div class="divider-line"></div>
+          <span class="partner">Asa Açaí</span>
+        </div>
+      </div>
+      <p style="font-size:10pt;color:#444;margin-top:3mm">
+        Marcas lado a lado, alinhadas pela base. Filete vertical de 1px como separador,
+        com espaço livre equivalente a <b>X</b> de cada lado.
+      </p>
+    </div>
+
+    <div>
+      <span class="pill alt">Composição Vertical</span>
+      <div class="coex" style="margin-top:4mm">
+        <div class="lockup-v">
+          <svg class="cocorock logo-green" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg>
+          <div class="divider-line"></div>
+          <span class="partner">Asa Açaí</span>
+        </div>
+      </div>
+      <p style="font-size:10pt;color:#444;margin-top:3mm">
+        Coco Rock acima, Asa Açaí abaixo (ou vice-versa, conforme contexto da peça),
+        ambas centralizadas. Filete horizontal opcional.
+      </p>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  <div class="row">
+    <div class="rule"><div class="bullet"></div><div><b>Hierarquia equilibrada.</b> Nenhuma marca pode parecer maior ou mais importante que a outra. Equipare visualmente as alturas.</div></div>
+    <div class="rule"><div class="bullet"></div><div><b>Mesmo eixo, mesma base.</b> Sempre alinhar pela base (horizontal) ou pelo centro (vertical).</div></div>
+    <div class="rule no"><div class="bullet"></div><div><b>Não fundir as marcas.</b> Não combinar tipografias, não criar uma única logo "Coco Rock × Asa Açaí" — sempre lockup separado.</div></div>
+  </div>
+
+  <div class="corner-br">08</div>
+</section>
+
+<!-- ===== 9. APLICAÇÃO SOBRE FUNDOS ===== -->
+<section class="page">
+  <div class="corner-tl">Logo · Aplicação sobre fundos</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <h2 style="margin-top:14mm">Aplicação sobre fundos</h2>
+  <p style="max-width:220mm">
+    Escolha sempre a versão que ofereça melhor contraste e legibilidade.
+    Sobre imagens, prefira áreas limpas; se necessário, use a forma de retenção (página 11).
+  </p>
+
+  <div class="grid four" style="margin-top:6mm">
+    <div class="logo-card" style="background:#fff"><svg class="logo-green" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg></div>
+    <div class="logo-card" style="background:var(--pulp)"><svg class="logo-green" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg></div>
+    <div class="logo-card" style="background:var(--green)"><svg class="logo-white" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg></div>
+    <div class="logo-card" style="background:#1f1f1f"><svg class="logo-white" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg></div>
+  </div>
+  <div class="grid four" style="margin-top:4mm">
+    <small>Fundo claro · positiva verde</small>
+    <small>Fundo neutro · positiva verde</small>
+    <small>Fundo verde institucional · negativa branca</small>
+    <small>Fundo escuro · negativa branca</small>
+  </div>
+
+  <div class="corner-br">09</div>
+</section>
+
+<!-- ===== 10. USOS INCORRETOS ===== -->
+<section class="page">
+  <div class="corner-tl">Logo · Usos incorretos</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <h2 style="margin-top:14mm">Usos incorretos</h2>
+  <p style="max-width:220mm">
+    A marca nunca deve ser alterada. Apresente-a sempre nas cores aprovadas,
+    sem efeitos visuais. Os exemplos abaixo são proibidos.
+  </p>
+
+  <div class="donts" style="margin-top:6mm">
+    <div class="item"><span class="x">✕</span><svg class="logo-green" viewBox="0 0 792 612" style="filter:hue-rotate(180deg)"><use href="#cocorock-mark"/></svg><small>Não criar nova cor</small></div>
+    <div class="item"><span class="x">✕</span><svg class="logo-green" viewBox="0 0 792 612" style="opacity:.35"><use href="#cocorock-mark"/></svg><small>Não aplicar transparência</small></div>
+    <div class="item"><span class="x">✕</span><svg class="logo-green" viewBox="0 0 792 612" style="transform:rotate(-12deg)"><use href="#cocorock-mark"/></svg><small>Não rotacionar</small></div>
+    <div class="item"><span class="x">✕</span><svg class="logo-green" viewBox="0 0 792 612" style="transform:scaleY(.55)"><use href="#cocorock-mark"/></svg><small>Não distorcer</small></div>
+    <div class="item"><span class="x">✕</span><svg class="logo-green" viewBox="0 0 792 612" style="filter:drop-shadow(2mm 2mm 1mm rgba(0,0,0,.4))"><use href="#cocorock-mark"/></svg><small>Não usar sombras / efeitos</small></div>
+    <div class="item"><span class="x">✕</span><svg viewBox="0 0 792 612" style="stroke:#91A93E;stroke-width:6;fill:none"><use href="#cocorock-mark"/></svg><small>Não aplicar contorno (outline)</small></div>
+    <div class="item"><span class="x">✕</span><div style="display:flex;align-items:center;gap:3mm"><svg class="logo-green" viewBox="0 0 792 612" style="width:60%"><use href="#cocorock-mark"/></svg><span style="font-size:8pt;color:#c63a2c">+ tagline</span></div><small>Não criar nova assinatura</small></div>
+    <div class="item"><span class="x">✕</span><div style="border:2px dashed #c63a2c;padding:4mm"><svg class="logo-green" viewBox="0 0 792 612" style="width:100%"><use href="#cocorock-mark"/></svg></div><small>Não criar formas de retenção</small></div>
+  </div>
+
+  <div class="corner-br">10</div>
+</section>
+
+<!-- ===== 11. DIVISOR UNIVERSO VISUAL ===== -->
+<section class="page divider">
+  <div class="num">03</div>
+  <div class="info">
+    <h2>Universo Visual</h2>
+    <ul>
+      <li>Paleta de cores</li>
+      <li>Tipografia</li>
+      <li>Patterns &amp; formas</li>
+      <li>Estilo fotográfico</li>
+    </ul>
+  </div>
+  <div class="corner-br">11</div>
+</section>
+
+<!-- ===== 12. PALETA ===== -->
+<section class="page">
+  <div class="corner-tl">Universo Visual · Paleta</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <h2 style="margin-top:14mm">Paleta de Cores</h2>
+  <p style="max-width:220mm">
+    Use a paleta oficial da Coco Rock em qualquer peça da collab. Nas comunicações
+    da linha Original, o verde <b>#91A93E</b> é a cor principal.
+  </p>
+
+  <h3 style="margin-top:6mm">Principais</h3>
+  <div class="grid four">
+    <div class="swatch"><div class="chip" style="background:#91A93E"></div><div class="info"><b>Original Verde</b><small>HEX #91A93E · RGB 145/169/62<br>CMYK 50/20/100/0 · Pantone 576 C</small></div></div>
+    <div class="swatch"><div class="chip" style="background:#B0C660"></div><div class="info"><b>Verde Soft</b><small>HEX #B0C660 · RGB 176/198/96<br>CMYK 35/8/80/0 · Pantone 577 C</small></div></div>
+    <div class="swatch"><div class="chip" style="background:#E1D6B6"></div><div class="info"><b>Pulp</b><small>HEX #E1D6B6 · RGB 225/214/182<br>CMYK 11/12/30/0 · Pantone 7506 C</small></div></div>
+    <div class="swatch"><div class="chip" style="background:#D3C6B9"></div><div class="info"><b>Coco</b><small>HEX #D3C6B9 · RGB 211/198/185<br>CMYK 17/19/25/0 · Pantone 4755 C</small></div></div>
+  </div>
+
+  <h3 style="margin-top:6mm">Sabores &amp; tons de apoio</h3>
+  <div class="grid four">
+    <div class="swatch"><div class="chip" style="background:#99381A"></div><div class="info"><b>Cacau</b><small>HEX #99381A · CMYK 26/87/100/23<br>Pantone 174 C</small></div></div>
+    <div class="swatch"><div class="chip" style="background:#864C24"></div><div class="info"><b>Café</b><small>HEX #864C24 · CMYK 33/70/97/29<br>Pantone 7567 C</small></div></div>
+    <div class="swatch"><div class="chip" style="background:#D78600"></div><div class="info"><b>Gengibre</b><small>HEX #D78600 · CMYK 14/53/100/0<br>Pantone 144 C</small></div></div>
+    <div class="swatch"><div class="chip" style="background:#E4CCAA"></div><div class="info"><b>Husk</b><small>HEX #E4CCAA · CMYK 10/18/34/0<br>Pantone 719 C</small></div></div>
+  </div>
+
+  <div class="corner-br">12</div>
+</section>
+
+<!-- ===== 13. TIPOGRAFIA ===== -->
+<section class="page">
+  <div class="corner-tl">Universo Visual · Tipografia</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <div class="row" style="margin-top:14mm">
+    <div style="flex:0 0 95mm">
+      <h2>Tipografia</h2>
+      <p>
+        A Coco Rock usa duas famílias tipográficas. A <b>Ubuntu</b> é a institucional —
+        traços limpos e ótima legibilidade. A <b>Avenir</b> é tipografia de apoio,
+        contemporânea e dinâmica.
+      </p>
+      <h3 style="margin-top:5mm">Hierarquia</h3>
+      <p style="font-size:10pt">
+        Títulos: Ubuntu Bold ou SemiBold.<br>
+        Corpo de texto: Ubuntu Regular ou Avenir Book.<br>
+        Espaços reduzidos (embalagens): Avenir Next Condensed.
+      </p>
+    </div>
+
+    <div class="stretch">
+      <div style="background:var(--pulp);border-radius:2mm;padding:10mm;margin-bottom:5mm">
+        <div style="font-family:'Ubuntu',sans-serif;font-weight:700;font-size:48pt;line-height:.95;color:#1f1f1f">Ubuntu</div>
+        <div style="font-family:'Ubuntu',sans-serif;font-weight:300;font-size:14pt;color:#444;margin-top:2mm">Light · Regular · SemiBold · Bold</div>
+        <div style="font-family:'Ubuntu',sans-serif;font-size:11pt;color:#444;margin-top:3mm">ABCDEFGHIJKLMNOPQRSTUVWXYZ&nbsp; · &nbsp;1234567890.?%@#&amp;</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:2mm;padding:10mm">
+        <div style="font-family:'Avenir Next','Avenir',system-ui,sans-serif;font-weight:700;font-size:42pt;line-height:.95;color:#1f1f1f">Avenir</div>
+        <div style="font-family:'Avenir Next','Avenir',system-ui,sans-serif;font-size:14pt;color:#444;margin-top:2mm">Book · Regular · Next Condensed</div>
+        <div style="font-family:'Avenir Next','Avenir',system-ui,sans-serif;font-size:11pt;color:#444;margin-top:3mm">ABCDEFGHIJKLMNOPQRSTUVWXYZ&nbsp; · &nbsp;1234567890.?%@#&amp;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="corner-br">13</div>
+</section>
+
+<!-- ===== 14. PATTERNS & FORMAS ===== -->
+<section class="page">
+  <div class="corner-tl">Universo Visual · Patterns &amp; Formas</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <h2 style="margin-top:14mm">Patterns &amp; Formas</h2>
+  <p style="max-width:220mm">
+    O pattern Coco Rock expressa a "mega crocância" e a origem tropical do coco. Pode ser
+    aplicado em qualquer cor da paleta oficial, sempre com áreas livres que garantam respiro.
+    Use as formas de retenção para acomodar texto sobre imagens com muito ruído.
+  </p>
+
+  <div class="pattern-band">
+    <div class="pb1"></div><div class="pb2"></div><div class="pb3"></div><div class="pb4"></div><div class="pb5"></div>
+  </div>
+
+  <div class="grid three">
+    <div class="rule"><div class="bullet"></div><div><b>Escala adequada.</b> Evite reduzir demais — o pattern precisa respirar.</div></div>
+    <div class="rule"><div class="bullet"></div><div><b>Cores da paleta.</b> Sempre dentro da Biblioteca de Cores oficial.</div></div>
+    <div class="rule no"><div class="bullet"></div><div><b>Não sobrecarregar.</b> Pattern em todo o layout, sem respiro, polui a leitura.</div></div>
+  </div>
+
+  <div class="corner-br">14</div>
+</section>
+
+<!-- ===== 15. ESTILO FOTOGRÁFICO ===== -->
+<section class="page">
+  <div class="corner-tl">Universo Visual · Estilo Fotográfico</div>
+  <div class="corner-tr">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <h2 style="margin-top:14mm">Estilo Fotográfico</h2>
+  <p style="max-width:240mm">
+    Imagens da collab devem evidenciar o produto real, com ingredientes naturais e composições
+    que despertem o apetite. Em peças com a Asa Açaí, o açaí pode dividir o protagonismo
+    com a Coco Rock — desde que a textura crocante do produto seja sempre visível.
+  </p>
+
+  <div class="grid four" style="margin-top:6mm">
+    <div class="pillar"><h3>1. Real e autêntico</h3><p>Produtos reais, sem artifícios. Reforça pureza e qualidade.</p></div>
+    <div class="pillar"><h3>2. Textura &amp; crocância</h3><p>Cortes, brilho e detalhes de superfície que provocam o paladar.</p></div>
+    <div class="pillar"><h3>3. Apetite à mesa</h3><p>Ato de consumo em destaque: bowl de açaí com Coco Rock, mão segurando.</p></div>
+    <div class="pillar"><h3>4. Harmonia cromática</h3><p>Cenários e props alinhados à paleta oficial. Tons neutros + verde.</p></div>
+  </div>
+
+  <div class="corner-br">15</div>
+</section>
+
+<!-- ===== 16. APROVAÇÃO / CONTATO ===== -->
+<section class="page" style="background:var(--green);color:#fff">
+  <div class="corner-tl" style="color:rgba(255,255,255,.75)">Aprovação &amp; Assets</div>
+  <div class="corner-tr" style="color:rgba(255,255,255,.75)">Brand Guide · Coco Rock × Asa Açaí</div>
+
+  <div style="margin-top:36mm;max-width:220mm">
+    <h1 style="color:#fff">Antes de publicar,<br>aprove com a gente.</h1>
+    <p class="lead" style="color:rgba(255,255,255,.92);max-width:200mm">
+      Toda peça da collab Coco Rock × Asa Açaí passa por aprovação prévia do time de marketing
+      da Coco Rock. Encaminhe artes finais (PDF ou JPG em alta) com pelo menos 5 dias úteis
+      de antecedência da veiculação.
+    </p>
+
+    <div class="grid three" style="margin-top:10mm">
+      <div>
+        <div style="font-size:10pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)">Aprovações</div>
+        <div style="font-size:14pt;font-weight:500;margin-top:2mm">marketing@cocorock.com.br</div>
+      </div>
+      <div>
+        <div style="font-size:10pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)">Solicitação de assets</div>
+        <div style="font-size:14pt;font-weight:500;margin-top:2mm">marca@cocorock.com.br</div>
+      </div>
+      <div>
+        <div style="font-size:10pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)">Site</div>
+        <div style="font-size:14pt;font-weight:500;margin-top:2mm">cocorock.com.br</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:absolute;bottom:18mm;left:20mm;right:20mm;display:flex;justify-content:space-between;align-items:flex-end;color:rgba(255,255,255,.85)">
+    <div>
+      <svg style="width:55mm" class="logo-white" viewBox="0 0 792 612"><use href="#cocorock-mark"/></svg>
+    </div>
+    <div style="text-align:right;font-size:9pt;letter-spacing:.18em;text-transform:uppercase">
+      Obrigado!<br>
+      <span style="opacity:.7;letter-spacing:0;text-transform:none;font-size:8pt">Material baseado no Brand Book Coco Rock V1 — uso restrito ao parceiro.</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
